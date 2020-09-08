@@ -93,22 +93,21 @@ function publishing (item, index) {
 		} else {
 			todo = JSON.parse(localStorage.getItem('todos'));
 		}
-		const thisTodo = this.parentElement.previousSibling.value; // getting index the hard way
-		todoIndex = todo.indexOf(thisTodo);
-		todo.splice(index, 1);
-		localStorage.setItem("todos", JSON.stringify(todo));
+
 		const thisDiv = this.parentElement.parentElement; // Gets the div containing both input and the buttons div
 		thisDiv.remove();
-
-		localStorage.setItem("todos", JSON.stringify(todo));
+		rmvFromLS();
 		// console.log(index);
 	}
 }
 function rmvFromLS() {
-	// var document.querySelectorAll(".do-to");
-	// forEach
-
-
+	var dotos = document.querySelectorAll(".do-to");
+	var tod = [];
+	dotos.forEach((item)=> {
+		console.log(item.value);
+		tod.push(item.value);
+	});
+	localStorage.setItem("todos", JSON.stringify(tod));
 	// const thisTodo = this.parentElement.previousSibling.value; // getting index the hard way
 	// todoIndex = todo.indexOf(thisTodo);
 	// todo.splice(index, 1);
