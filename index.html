@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>To-Do List Z</title>
+
+	<!--Cause Google wants attention-_-)-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!-- Materialize -->
+	<link rel="stylesheet" type="text/css" href="frameworks/materialize/css/materialize.css">
+	<!-- custom styles -->
+	<link rel="stylesheet" type="text/css" href="todo.css">
+</head>
+<body class="grey lighten-5">
+	<div class="container main">
+		<div class="heading center">
+			<h2 class="h2">To-do List Maker</h2>
+		</div>
+
+		<form action="/index.html" onsubmit="return addList()" method="post">
+		<div class="input input-field col s12">
+          <input id="work" class="work validate" type="text">
+          <label for="work">What to do?...</label>
+        </div>
+
+		<div class="right">
+			<button id="add" class="btn-floating btn-large waves-effect waves-light blue" type="submit"><i class="material-icons">publish</i></button>
+		</div>
+	</form>
+
+		<div class="list container">
+			<!-- Here the lists will appear 
+			<div class="newDiv">
+				<input class="input-width">
+				<div classs="todoDiv">
+					<button><i></i></button>
+					<button><i></i></button>
+				</div>
+			</div>
+			-->
+		</div>
+	</div>
+	<footer class="page-footer center-align light-blue darken-1">
+		Created by Ishmam &copy;2020
+	</footer>
+
+
+
+	<script type="text/javascript" src="frameworks/materialize/js/materialize.js"></script>
+	<script type="text/javascript" src="todo.js"></script>
+</body>
+</html>

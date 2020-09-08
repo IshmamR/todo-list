@@ -1,0 +1,38 @@
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+}
+h2 {
+	margin: 0;
+}
+.heading {
+	padding-top: 2rem !important;
+}
+.main {
+	min-height: 97vh;
+}
+.list {
+	max-height: 50vh;
+	margin-top: 10vh;
+	overflow-y: auto;
+	padding-bottom: 8vh;
+}
+input:disabled{
+	color: black !important;
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+/*newDiv*/
+.newDiv{ 
+	margin-bottom: 8vh;
+}
+/*todoDiv*/ 
+.input-width { 
+	width: 90% !important;
+}
+footer {
+	width: 100%;
+	padding: 0 !important;
+	z-index: 5;
+}
