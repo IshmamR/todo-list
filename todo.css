@@ -14,17 +14,30 @@ h2, h6 {
 .heading {
 	padding-top: 2rem !important;
 }
-
-.calender {
+.card-1 {
 	height: 8rem;
 	width: 10rem;
-	margin-left: 1rem;
-	padding-top: 0.5rem;
-	transform: rotate(-10deg);
-	z-index: 69;
+	margin: 0.2rem 0 0 1rem;
+	position: relative;
+	transform: rotate(-5deg) !important;
+	z-index: 60 !important;
 }
+.calender, .card-2 {
+	position: absolute;
+	top: 0;
+	height: 8rem;
+	width: 10rem;
+	padding-top: 0.5rem;
+	transform: rotate(-15deg);
+	z-index: 70;
+}
+.card-2 {
+	transform: rotate(-5deg);
+	z-index: 65;
+}
+
 @media only screen and (max-width: 719px) {
-	.calender {
+	.calender, .card-1, .card-2 {
 		width: 8rem;
 	}
 	h5, h6 {

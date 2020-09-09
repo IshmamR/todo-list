@@ -3,7 +3,7 @@ var input = document.querySelector(".work"); // To-Do Input
 
 var todo;
 // var local = JSON.parse(localStorage.getItem('todos'));
-if(localStorage.getItem('todos') === null) {	
+if(localStorage.getItem('todos') === null) {
 	todo = [];
 } else {
 	todo = JSON.parse(localStorage.getItem('todos'));
@@ -91,7 +91,7 @@ function publishing (item, index) {
 	}
 	function rmvFunc() {
 		// var todo;
-		if(localStorage.getItem('todos') === null) {	
+		if(localStorage.getItem('todos') === null) {
 			todo = [];
 		} else {
 			todo = JSON.parse(localStorage.getItem('todos'));
@@ -166,9 +166,9 @@ function clock() {
 	var ap;
 	if (hrDig > 12) {
 		hrDig = hrDig - 12;
-		ap = "AM";
-	} else {
 		ap = "PM";
+	} else {
+		ap = "AM";
 	}
 	//This part will show the digital clock
 	var digClock = document.querySelector(".time");
