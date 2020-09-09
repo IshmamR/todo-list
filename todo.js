@@ -76,6 +76,9 @@ function publishing (item, index) {
 	
 	input.value = ""; // The input goes blank
 
+	// scroll into view after publishing
+	setTimeout(scrolled, 1000);
+	
 	function editFunc() {
 		// setting localstorage twice to be sure -_-
 		localStorage.setItem('todos', JSON.stringify(todo));
@@ -95,8 +98,12 @@ function publishing (item, index) {
 		}
 
 		const thisDiv = this.parentElement.parentElement; // Gets the div containing both input and the buttons div
-		thisDiv.remove();
-		rmvFromLS();
+		thisDiv.classList.add("animation");
+		thisDiv.addEventListener("animationend", ()=> {
+			console.log("hello");
+			thisDiv.remove();
+			rmvFromLS();
+		})
 		// console.log(index);
 	}
 }
@@ -104,12 +111,78 @@ function rmvFromLS() {
 	var dotos = document.querySelectorAll(".do-to");
 	var tod = [];
 	dotos.forEach((item)=> {
-		console.log(item.value);
+		// console.log(item.value);
 		tod.push(item.value);
 	});
 	localStorage.setItem("todos", JSON.stringify(tod));
-	// const thisTodo = this.parentElement.previousSibling.value; // getting index the hard way
-	// todoIndex = todo.indexOf(thisTodo);
-	// todo.splice(index, 1);
-	// localStorage.setItem("todos", JSON.stringify(todo));
 }
+
+document.querySelector("#rmv").addEventListener("click", ()=> {
+	var dotos = document.querySelectorAll(".newDiv");
+	var tod = [];
+	dotos.forEach((item)=> {
+		const thisDiv = item; // Gets the div containing both input and the buttons
+		thisDiv.remove();
+	});
+	localStorage.setItem("todos", JSON.stringify(tod));
+});
+
+function scrolled() {
+	cont.lastChild.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+}
+
+// Love react
+const fav = document.querySelector(".fav");
+const span = document.querySelector(".l-text");
+var loved;
+document.querySelector("#loved").addEventListener("click", ()=> {
+	if(localStorage.getItem("loved") === null || localStorage.getItem("loved") == 0) {
+		loved = 1;
+		localStorage.setItem("loved", loved);
+		fav.innerHTML = 'favorite';
+		span.innerHTML = 'Loved it!';
+	} else {
+		loved = 0;
+		localStorage.setItem("loved", loved);
+		fav.innerHTML = 'favorite_border';
+		span.innerHTML = "";
+	}
+});
+if(localStorage.getItem("loved") === null || localStorage.getItem("loved") == 0) {
+	fav.innerHTML = 'favorite_border';
+	span.innerHTML = "";
+} else if (localStorage.getItem("loved") == 1) {
+	fav.innerHTML = 'favorite';
+	span.innerHTML = 'Loved it!';
+}
+
+// CLOCK
+inteval = setInterval(clock, 1000);
+function clock() {
+	var time = new Date();
+	var scDig = time.getSeconds();
+	var mnDig = time.getMinutes();
+	var hrDig = time.getHours();
+	var ap;
+	if (hrDig > 12) {
+		hrDig = hrDig - 12;
+		ap = "AM";
+	} else {
+		ap = "PM";
+	}
+	//This part will show the digital clock
+	var digClock = document.querySelector(".time");
+	digClock.innerHTML =  hrDig + ":" + mnDig + ":" + scDig + " " + ap;
+}
+// CALENDER
+var d = new Date();
+var day = d.getDay();
+var date = d.getDate();
+var month = d.getMonth() + 1;
+var year = d.getFullYear();
+var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+var dateToday = date + "/" + month + "/" + year;
+var dayx = "<h5>" + days[day]; + "</h5>";
+var datex = "<h6>" + dateToday + "</h6>";
+var cal = document.querySelector(".calender");
+cal.innerHTML = dayx + datex;

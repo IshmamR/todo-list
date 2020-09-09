@@ -3,19 +3,26 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="description" content="Todo list web application by Ishmam">
+	<meta name="author" content="Ishmam">
 	<title>To-Do List Z</title>
 
 	<!--Cause Google wants attention-_-)-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<!-- Materialize -->
-	<link rel="stylesheet" type="text/css" href="frameworks/materialize/css/materialize.css">
+	<link rel="stylesheet" type="text/css" href="frameworks/materialize.min.css">
+	<!-- Google font(CAIRO) -->
+	<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
 	<!-- custom styles -->
 	<link rel="stylesheet" type="text/css" href="todo.css">
 </head>
 <body class="grey lighten-5">
+	<div class="card calender left yellow darken-3 white-text center-align"></div>
 	<div class="container main">
 		<div class="heading center">
-			<h2 class="h2">To-do List Maker</h2>
+			<h3 class="h3">To-do List Maker</h3>
 		</div>
 
 		<form action="/index.html" onsubmit="return addList()" method="post">
@@ -25,10 +32,11 @@
         </div>
 
 		<div class="right">
-			<button id="add" class="btn-floating btn-large waves-effect waves-light blue" type="submit"><i class="material-icons">publish</i></button>
+			<button id="add" class="btn-floating btn-large waves-effect waves-light blue" title="publish" type="submit"><i class="material-icons">publish</i></button>
+			<button id="rmv" class="right btn-floating btn-large waves-effect waves-light red" title="delete all" type="button"><i class="material-icons">delete_forever</i></button>
 		</div>
-	</form>
-
+		</form>
+		
 		<div class="list container">
 			<!-- Here the lists will appear 
 			<div class="newDiv">
@@ -41,13 +49,23 @@
 			-->
 		</div>
 	</div>
+	<div class="watch col s-12">
+		<div class="left card blue lighten-3">
+			<h6 class="time"></h6>
+		</div>
+		<div class="right">
+			<span class="l-text pink-text"></span>
+			<button id="loved" class="right btn-floating btn-large waves-effect waves-light white" type="button"><i class="fav material-icons pink">favorite_border</i></button>
+		</div>
+	</div>
+
 	<footer class="page-footer center-align light-blue darken-1">
 		Created by Ishmam &copy;2020
 	</footer>
 
 
 
-	<script type="text/javascript" src="frameworks/materialize/js/materialize.js"></script>
+	<script type="text/javascript" src="frameworks/materialize.min.js"></script>
 	<script type="text/javascript" src="todo.js"></script>
 </body>
 </html>
